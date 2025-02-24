@@ -1,0 +1,18 @@
+{
+  "name": "fooddelivery",
+  "version": "1.0.0",
+  "description": "food delivery service",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "B.Batorgil",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.9"
+  }
+}
