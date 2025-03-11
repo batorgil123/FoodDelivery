@@ -2,9 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user-routes.js";
+import foodRouter from "./routes/food-router.js";
+import categoryRouter from "./routes/category-router.js";
 dotenv.config();
 const app = express();
-const port = 3000;
+const port = 5000;
 app.use(express.json());
 
 const mongoString = process.env.CONNECTION_STRING;
@@ -22,7 +24,9 @@ mongoose
     console.error("Error connecting to MongoDB:", error);
     process.exit(1);
   });
-app.use("/", userRouter);
+app.use("/users/", userRouter);
+app.use("/food/", foodRouter);
+app.use("/category/", categoryRouter);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
