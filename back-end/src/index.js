@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRouter from "./routes/user-routes.js";
 import foodRouter from "./routes/food-router.js";
 import categoryRouter from "./routes/category-router.js";
+import orderRouter from "./routes/foodorder-router.js";
 dotenv.config();
 const app = express();
 const port = 5000;
@@ -27,6 +28,7 @@ mongoose
 app.use("/users/", userRouter);
 app.use("/food/", foodRouter);
 app.use("/category/", categoryRouter);
+app.use("/order/", orderRouter);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

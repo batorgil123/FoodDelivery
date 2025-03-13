@@ -1,14 +1,13 @@
-// import express from 'express';
-// import { createUser } from '../CRUD/usercrud/createUser.js';
-// import { getUser } from '../CRUD/usercrud/getUser.js';
-// import deleteUser from '../CRUD/usercrud/deleteUser.js';
-// import putUser from '../CRUD/usercrud/putUser.js';
+import express from 'express';
+import {createfoodorder} from '../CRUD/foodordercrud/createfoodorder.js'
+import {getOrder} from '../CRUD/foodordercrud/getfoodorder.js'
+import deletefoodorder from '../CRUD/foodordercrud/deletefoodorder.js'
+import putfoodorder from '../CRUD/foodordercrud/putfoodorder.js'
+const orderRouter = express.Router();
 
-// const userRouter = express.Router();
+userRouter.post('/', createfoodorder);
+userRouter.get('/', getOrder);
+userRouter.delete('/:id', deletefoodorder);  
+userRouter.put('/:id', putfoodorder);  
 
-// userRouter.post('/', createUser);
-// userRouter.get('/', getUser);
-// userRouter.delete('/:id', deleteUser);  
-// userRouter.put('/:id', putUser);  
-
-// export default userRouter;
+export default orderRouter;
