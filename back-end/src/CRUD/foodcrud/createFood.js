@@ -1,5 +1,5 @@
 import Food from "../../models/FoodSchema.js";
-
+// import User from "../../models/UserSchema.js";
 export const createFood = async (req, res) => {
 	try {
 	  const food = new Food(req.body);

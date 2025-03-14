@@ -5,9 +5,9 @@ import deletefoodorder from '../CRUD/foodordercrud/deletefoodorder.js'
 import putfoodorder from '../CRUD/foodordercrud/putfoodorder.js'
 const orderRouter = express.Router();
 
-userRouter.post('/', createfoodorder);
-userRouter.get('/', getOrder);
-userRouter.delete('/:id', deletefoodorder);  
-userRouter.put('/:id', putfoodorder);  
+orderRouter.post('/', createfoodorder);
+orderRouter.get('/', getOrder);
+orderRouter.delete('/:id', deletefoodorder);  
+orderRouter.put('/:id', putfoodorder);  
 
 export default orderRouter;

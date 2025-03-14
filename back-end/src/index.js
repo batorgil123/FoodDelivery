@@ -5,6 +5,7 @@ import userRouter from "./routes/user-routes.js";
 import foodRouter from "./routes/food-router.js";
 import categoryRouter from "./routes/category-router.js";
 import orderRouter from "./routes/foodorder-router.js";
+import midauth from "./middleware/authMiddleware.js";
 dotenv.config();
 const app = express();
 const port = 5000;
@@ -25,10 +26,10 @@ mongoose
     console.error("Error connecting to MongoDB:", error);
     process.exit(1);
   });
-app.use("/users/", userRouter);
-app.use("/food/", foodRouter);
-app.use("/category/", categoryRouter);
-app.use("/order/", orderRouter);
+app.use("/users/",  userRouter);
+app.use("/food/", midauth, foodRouter);
+app.use("/category/", midauth, categoryRouter);
+app.use("/order/", midauth, orderRouter);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
