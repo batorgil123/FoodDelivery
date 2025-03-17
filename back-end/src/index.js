@@ -6,6 +6,7 @@ import foodRouter from "./routes/food-router.js";
 import categoryRouter from "./routes/category-router.js";
 import orderRouter from "./routes/foodorder-router.js";
 import midauth from "./middleware/authMiddleware.js";
+import { VercelRequest, VercelResponse } from '@vercel/node';
 dotenv.config();
 const app = express();
 const port = 5000;
@@ -33,3 +34,4 @@ app.use("/order/", midauth, orderRouter);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+export default (req, res) => app(req, res);
