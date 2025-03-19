@@ -6,7 +6,7 @@ import foodRouter from "./routes/food-router.js";
 import categoryRouter from "./routes/category-router.js";
 import orderRouter from "./routes/foodorder-router.js";
 import cors from "cors";
-const port =  5000;
+const port = 5000;
 
 dotenv.config();
 
@@ -39,8 +39,8 @@ app.get("/", (req, res) => {
   res.send("Server is running.");
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-}
-);
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
+
 export default app;
