@@ -6,6 +6,7 @@ import foodRouter from "./routes/food-router.js";
 import categoryRouter from "./routes/category-router.js";
 import orderRouter from "./routes/foodorder-router.js";
 import cors from "cors";
+import locationRoutes from "./routes/location-routes.js"; 
 const port = 5000;
 
 dotenv.config();
@@ -34,6 +35,7 @@ app.use("/users", userRouter);
 app.use("/food", foodRouter);
 app.use("/category", categoryRouter);
 app.use("/order", orderRouter);
+app.use("/location", locationRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running.");
