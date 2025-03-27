@@ -1,7 +1,5 @@
-
-import FoodOrder from '../models/FoodOrder.js';
-
-export const getOrder = async (req, res) => {
+import FoodOrder from '../../models/FoodOrderSchema.js';
+export const getOrder = async (_, res) => {
   try {
     const orders = await FoodOrder.find()
       .populate({
