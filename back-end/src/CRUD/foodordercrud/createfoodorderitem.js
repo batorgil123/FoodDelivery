@@ -3,7 +3,7 @@ export const createfoodorderitem = async (req, res) => {
 	try {
 	  const foodorderitem = new FoodOrderItem(req.body);
 	  await foodorderitem.save();
-	  res.send(foodorderitem);
+	  res.status(201).send({ message: "Food has been created" });
 	  console.log("Food has been created");
 	} catch (error) {
 	  res.status(500).send({ error: error.message });
