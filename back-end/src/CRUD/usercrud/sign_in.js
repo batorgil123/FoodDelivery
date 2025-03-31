@@ -5,6 +5,9 @@ dotenv.config();
 export const signin = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log("Received sign-in request with email:", email);
+        console.log("Received sign-in request with password:", password);
+        
         if (!email || !password) {
             return res.status(400).json({ message: "Email and password are required" });
         }
