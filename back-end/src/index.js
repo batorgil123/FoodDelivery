@@ -7,6 +7,7 @@ import categoryRouter from "./routes/category-router.js";
 import orderRouter from "./routes/foodorder-router.js";
 import cors from "cors";
 import locationRoutes from "./routes/location-routes.js"; 
+import middleAuth from "./middleware/authMiddleware.js";
 const port = 5000;
 
 dotenv.config();
@@ -31,11 +32,11 @@ mongoose
     process.exit(1);
   });
 
-app.use("/users", userRouter);
-app.use("/food", foodRouter);
-app.use("/category", categoryRouter);
-app.use("/order", orderRouter);
-app.use("/location", locationRoutes);
+app.use("/users",userRouter);
+app.use("/food",middleAuth, foodRouter);
+app.use("/category", middleAuth,categoryRouter);
+app.use("/order", middleAuth,orderRouter);
+app.use("/location", middleAuth,locationRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running.");

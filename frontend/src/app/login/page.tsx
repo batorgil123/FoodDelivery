@@ -19,18 +19,27 @@ const SignIn = () => {
   const handleSignIn = async () => {
     try {
       const response = await signInUser(userData.email, userData.password);
-      router.replace("/home");
+      if (response.token) {
+        localStorage.setItem("userId", response.id);
+        localStorage.setItem("token", response.token);
+        router.replace("/home");
+      } else {
+        setMessage("Invalid email or password");
+      }
     } catch (error: any) {
-      setMessage(error.message || "Invalid credentials");
+      setMessage(error?.response?.data?.message || "An error occurred during sign-in");
     }
   };
+  
 
   return (
-    <div className="w-[100%] flex flex-row justify-between mx-[10%] my-[5%]">
+    <div className="w-full flex flex-row justify-between py-[5%] px-[10%]">
       <div className="flex flex-col my-[10%] items-start justify-center space-y-4">
-        <p className="text-[#71717A]">Sign in to explore your favorite dishes.</p>
+        <p className="text-[#71717A]">
+          Sign in to explore your favorite dishes.
+        </p>
 
-        <div className="flex flex-col gap-4 w-[100%]">
+        <div className="flex flex-col gap-4 w-full">
           <input
             type="email"
             name="email"

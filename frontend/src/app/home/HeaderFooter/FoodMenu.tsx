@@ -19,7 +19,7 @@ export default function FoodMenu() {
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [isBagOpen, setIsBagOpen] = useState<boolean>(false);
-
+  const userId = localStorage.getItem("userId") || "";
   useEffect(() => {
     getFoods()
       .then((foods) => {

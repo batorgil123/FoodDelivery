@@ -21,7 +21,8 @@ export const signin = async (req, res) => {
         if (!isPasswordCorrect) {
             return res.status(401).json({ message: "Incorrect email or password" });
         }
-        res.status(200).json({ message: "Sign-in successful", user: existingUser });
+        localStorage.setItem("token", existingUser.token);
+        res.status(200).json({ message: "Sign-in successful", id: existingUser._id });
     } catch (error) {
         console.error("Error signing in:", error);
         res.status(500).json({ error: error.message });
