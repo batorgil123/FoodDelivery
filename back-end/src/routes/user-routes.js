@@ -10,5 +10,5 @@ userRouter.post('/', createUser);
 userRouter.get('/', getUser);
 userRouter.delete('/:id', deleteUser);  
 userRouter.put('/:id', putUser);  
-userRouter.post('/sign_in', signin);
+userRouter.post('/signin', signin);
 export default userRouter;

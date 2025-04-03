@@ -20,7 +20,6 @@ const SignIn = () => {
     try {
       const response = await signInUser(userData.email, userData.password);
       if (response.token) {
-        localStorage.setItem("userId", response.id);
         localStorage.setItem("token", response.token);
         router.replace("/home");
       } else {

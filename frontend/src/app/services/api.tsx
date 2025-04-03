@@ -39,8 +39,7 @@ export const signInUser = async (
   password: string
 ): Promise<any> => {
   try {
-    const response = await axios.post(`${API_URL}/signin`, { email, password });
-    localStorage.setItem("token", response.data.token);
+    const response = await axios.post(`${API_URL}/users/signin`, { email, password });
     localStorage.setItem("userId", response.data.id);
     axios.defaults.headers.common[
       "Authorization"
